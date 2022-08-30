@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="./vue.js"></script>
+        <title>Title</title>
+    </head>
+    <body>
+
+    <div id="app">
+        <!--v-if simples-->
+        <button @click="exibir()">Exibir Saldo</button>
+        <p  v-if="saldo > 0 || e">Saldo:{{ saldo }}</p>
+        <button @click="add()">add</button>
+        <button @click="sub()">sub</button>
+        <hr>
+
+        <!-- v-if e v-else -->
+    </div>
+
+    <script>
+
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                saldo: 0,
+                e: false,
+            },
+            methods: {
+                add() {
+                    this.saldo += 1;
+                },
+                sub() {
+                    this.saldo -= 1;
+                },
+                exibir() {
+                    if(!this.e) {
+                        this.e = true;
+                    } else {
+                        this.e = false;
+                    }
+                }
+            },
+        });
+
+    </script>
+
+    </body>
+</html>
