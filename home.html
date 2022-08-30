@@ -64,7 +64,55 @@
 
 </div>
 
+<div id="app2">
+    <a href="https://chicorei.com/"
+       target="_blank"
+       @click.prevent="prevent()"
+    >
+        Link
+    </a>
+    <br>
+    Mensagem: {{ msg }}
+    <br><br>
+    <button @click.once="umaVez()">Botão</button> <br>
+    <p>Clicks: {{ clicks }}</p>
+
+    <br><br>
+
+    <form @submit.prevent.once="preventUmaVez()">
+        <button type="submit">Enviar</button>
+    </form>
+    <p>Formulário: {{ formulario }}</p>
+    <hr>
+    <input type="text" @keyup.a="captureKey($event)">
+    <p>Tecla: {{ teclas }}</p>
+</div>
+
 <script>
+
+    const vm2 = new Vue({
+        el: '#app2',
+        data: {
+            msg: '',
+            clicks: 0,
+            formulario: '',
+            teclas: '',
+        },
+        methods: {
+            prevent() {
+                this.msg = 'ativado'
+            },
+            umaVez() {
+                this.clicks += 1;
+            },
+            preventUmaVez() {
+                this.formulario = 'prevenir';
+            },
+            captureKey(e) {
+                this.teclas += e.key;
+            },
+        }
+    });
 
     const vm = new Vue({
         el: '#app',
@@ -85,6 +133,7 @@
                 this.mouseX = e.x;
                 this.mouseY = e.y;
             },
+
         }
     });
 
