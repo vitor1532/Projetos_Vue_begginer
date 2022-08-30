@@ -18,6 +18,10 @@
         <hr>
 
         <!-- v-if e v-else -->
+        Idade: <input type="number" id="idade" @blur="setIdade()">
+        <p v-if="idade < 18">Menor de idade</p>
+        <p v-else>Maior de idade</p>
+
     </div>
 
     <script>
@@ -27,6 +31,7 @@
             data: {
                 saldo: 0,
                 e: false,
+                idade: 0,
             },
             methods: {
                 add() {
@@ -41,6 +46,9 @@
                     } else {
                         this.e = false;
                     }
+                },
+                setIdade() {
+                    this.idade = idade.value
                 }
             },
         });
