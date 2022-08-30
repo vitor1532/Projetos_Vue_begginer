@@ -21,6 +21,14 @@
         Idade: <input type="number" id="idade" @blur="setIdade()">
         <p v-if="idade < 18">Menor de idade</p>
         <p v-else>Maior de idade</p>
+        <hr>
+
+        <!-- v-if, v-else-if, v-else -->
+        Nota: <input type="number" id="nota" @blur="setNota()">
+        <p v-if="nota == ''">Digite a nota do aluno</p>
+        <p v-else-if="nota == 60">Aluno está em cima da média</p>
+        <p v-else-if="nota > 60">Aluno está acima da média</p>
+        <p v-else>Aluno está abaixo da média</p>
 
     </div>
 
@@ -32,6 +40,7 @@
                 saldo: 0,
                 e: false,
                 idade: 0,
+                nota: 0,
             },
             methods: {
                 add() {
@@ -49,6 +58,9 @@
                 },
                 setIdade() {
                     this.idade = idade.value
+                },
+                setNota() {
+                    this.nota = nota.value;
                 }
             },
         });
