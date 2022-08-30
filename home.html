@@ -84,7 +84,7 @@
     </form>
     <p>Formulário: {{ formulario }}</p>
     <hr>
-    <input type="text" @keyup.a="captureKey($event)">
+    <input type="text" @keyup="captureKey($event)">
     <p>Tecla: {{ teclas }}</p>
 </div>
 

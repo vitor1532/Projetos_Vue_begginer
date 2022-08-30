@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="./vue.js"></script>
+        <title>Title</title>
+    </head>
+    <body>
+
+        <div id="app">
+            <input type="text" id="texto">
+            <br>
+            <select id="opcoes">
+                <option value="a">a</option>
+                <option value="b">b</option>
+                <option value="c">c</option>
+                <option value="d">d</option>
+            </select>
+            <br>
+            <p id="p" style="color: red;">Parágrafo</p>
+            <br>
+            <button @click="selectSon()">Botão</button>
+            <br>
+        </div>
+
+    <script>
+
+        const vm = new Vue({
+            el: '#app',
+            data: {
+
+           },
+            methods: {
+                selectSon() {
+                    console.log(p.style.color)
+                }
+            },
+        });
+
+    </script>
+
+    </body>
+</html>
