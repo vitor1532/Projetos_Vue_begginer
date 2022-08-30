@@ -42,7 +42,7 @@
         <br>
         ========================================
         <br>
-        <input id="inputo" type="text" :placeholder="texto" @keyup="imprimirTexto('t')">
+        <input id="inputo" type="text" :placeholder="texto" @keyup="imprimirTexto($event)">
         <button @click="mensagemAlerta()">Botão</button>
 
     </div>
@@ -88,8 +88,8 @@
                 }
             },
             methods: {
-                imprimirTexto(t) {
-                    console.log(t);
+                imprimirTexto(e) {
+                    console.log(e);
                 },
                 mensagemAlerta() {
                     alert(document.getElementById('inputo').value);
