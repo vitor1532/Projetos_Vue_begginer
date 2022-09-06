@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <p @mouseover="exibir = true" @mouseout="exibir = false">Exemplo tooltip</p>
+        <div v-show="exibir">
+            <h3>Título</h3>
+            <p>Conteudo</p>
+        </div>
+
+    </div>
+
+    <script>
+
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                exibir: false
+            },
+            methods: {
+
+                toggleOn() {
+                    if(this.exibir === false) {
+                        this.exibir === true;
+                    } else if (this.exibir === true) {
+                        this.exibir === false;
+                    }
+                },
+            },
+        })
+
+    </script>
+
+</body>
+</html>
