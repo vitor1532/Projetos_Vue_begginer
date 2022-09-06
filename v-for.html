@@ -11,6 +11,16 @@
 
 <div id="app">
   <ul>
+    <li v-for="r in comentarios">
+      {{r.id}} - {{r.comentario}}
+    </li>
+  </ul>
+  <button @click="add()">Add</button>
+  <button @click="remove()">Remove</button>
+  <button @click="att()">Modify</button>
+
+  <hr>
+  <ul>
     <li v-for="curso in cursos">{{ curso }}</li>
   </ul>
   <hr>
@@ -42,7 +52,7 @@
   <button @click="misturar()">Misturar</button>
   <hr>
   <ul>
-    <li v-for="n in 10">
+    <li v-for="n in numero">
       {{n}}
     </li>
   </ul>
@@ -53,6 +63,25 @@
   const vm = new Vue({
     el: '#app',
     data: {
+      comentarios: [
+        {
+          id: 1,
+          comentario: 'comment 1'
+        },
+        {
+          id: 2,
+          comentario: 'comment 2'
+        },
+        {
+          id: 3,
+          comentario: 'comment 3'
+        },
+        {
+          id: 4,
+          comentario: 'comment 4'
+        },
+      ],
+      numero:10,
       cursos: ['laravel', 'vue', 'webCompleto', 'Angular', 'Solid'],
       cursos2: {
         1000: {
@@ -81,6 +110,18 @@
         misturado[3] = this.publicacoes[2]
 
         this.publicacoes = misturado
+      },
+      add() {
+        //this.comentarios[4] = {id: 5, comentario: 'comment 5'}
+        this.comentarios.push({id: 5, comentario: 'comment 5'})
+      },
+      remove() {
+        this.comentarios.pop()
+      },
+      att() {
+        //this.comentarios[1] = {id:2, comentario: modified}
+        this.$set(this.comentarios, 1, {id:2, comentario: 'modified'})
+        console.log(this.comentarios)
       }
     }
   })
