@@ -15,6 +15,28 @@
         {{ paciente }}<br>
         <!--<input type="text" :value="paciente" @keyup="setPaciente($event)">-->
         <input type="text" v-model="paciente">
+        <hr>
+        <input type="radio" value="f" v-model="sexo" name="sexo">Feminino
+        <input type="radio" value="m" v-model="sexo" name="sexo">Masculino
+        <br> {{ sexo }}
+        <hr>
+        <select v-model="plano">
+            <option value="" disabled>Selecione um plano</option>
+            <option value="1">Básico</option>
+            <option value="2">Prata</option>
+            <option value="3">Ouro</option>
+        </select>
+        <br> {{ plano }}
+        <hr>
+        <input type="checkbox" value="100" v-model="doencas">Asma
+        <input type="checkbox" value="101" v-model="doencas">Gripe
+        <input type="checkbox" value="102" v-model="doencas">Covid
+        <input type="checkbox" value="103" v-model="doencas">Varíola do mamaco
+        <br> {{ doencas }}
+        <hr>
+        <textarea v-model="diagnostico"></textarea>
+        <br> {{ diagnostico }}
+
     </div>
 
     <script>
@@ -22,7 +44,11 @@
         const vm = new Vue({
             el: '#app',
             data: {
-                paciente: 'João da Silva'
+                paciente: 'João da Silva',
+                sexo: '',
+                plano: '',
+                doencas: [],
+                diagnostico: '',
             },
             methods: {
                 setPaciente(e) {
