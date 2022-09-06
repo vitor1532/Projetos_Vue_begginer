@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+
+<div id="app">
+  <ul>
+    <li v-for="curso in cursos">{{ curso }}</li>
+  </ul>
+  <hr>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Título</th>
+        <th>Descrição</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="(c, key) in cursos2">
+        <td>{{ key }}</td>
+        <td>{{ c.titulo }}</td>
+        <td>{{ c.descricao }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <ul>
+    <li v-for="p in publicacoes" style="border: solid 1px; margin-bottom: 10px;" :key="p.id">
+      {{ p }}
+      <br>
+      <input type="text" placeholder="comment">
+      <hr>
+    </li>
+  </ul>
+  <button @click="misturar()">Misturar</button>
+  <hr>
+  <ul>
+    <li v-for="n in 10">
+      {{n}}
+    </li>
+  </ul>
+</div>
+
+<script>
+
+  const vm = new Vue({
+    el: '#app',
+    data: {
+      cursos: ['laravel', 'vue', 'webCompleto', 'Angular', 'Solid'],
+      cursos2: {
+        1000: {
+          titulo: 'Laravel',
+          descricao: 'curso de laravel'
+        },
+        1001: {
+          titulo: 'Vue',
+          descricao: 'curso de Vue'
+        }
+      },
+      publicacoes: [
+        {id: 1, publicacao: 'publi1'},
+        {id: 2, publicacao: 'publi2'},
+        {id: 3, publicacao: 'publi3'},
+        {id: 4, publicacao: 'publi4'},
+      ],
+    },
+    methods: {
+      misturar() {
+        let misturado = []
+
+        misturado[0] = this.publicacoes[3]
+        misturado[1] = this.publicacoes[0]
+        misturado[2] = this.publicacoes[1]
+        misturado[3] = this.publicacoes[2]
+
+        this.publicacoes = misturado
+      }
+    }
+  })
+
+</script>
+
+</body>
+</html>
