@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="./vue.js"></script>
+        <title>Title</title>
+    </head>
+    <body>
+
+    <div id="app">
+
+        <span>Paciente: </span><input type="text" v-model="paciente">
+        <ul>
+            <li v-for="l in lista">{{l.nome}}, {{l.idade}}</li>
+        </ul>
+
+    </div>
+
+    <script>
+
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                paciente: '',
+                pacientes: [
+                    {nome: 'Vitor', idade: 26},
+                    {nome: 'Dante', idade: 24},
+                    {nome: 'Valdemiro', idade: 79},
+                    {nome: 'Violeta', idade: 29},
+                    {nome: 'Sueli', idade: 49},
+                    {nome: 'Marcus', idade: 53},
+                    {nome: 'Paçoca', idade: 1},
+                ],
+                lista: [],
+            },
+            methods: {},
+            computed: {},
+            watch: {
+                paciente(newValue) {
+                    console.log(newValue)
+                    this.lista = this.pacientes.filter(p => p.nome.match(newValue))
+                },
+            }
+        })
+
+    </script>
+
+    </body>
+</html>
